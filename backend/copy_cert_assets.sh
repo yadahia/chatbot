@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Script para copiar certificados personalizados
-# Autor: Atendechat
-# Versão: 2.0
-
 set -e
 
 # Cores para output
@@ -36,7 +32,7 @@ if [ -f "$CERT_FILE" ]; then
     echo -e "${GREEN}✅ Copiando certificado personalizado: $CERT_FILE${NC}"
     cp "$CERT_FILE" "$CERT_TARGET"
     echo -e "${GREEN}   Certificado copiado para: $CERT_TARGET${NC}"
-    
+
     # Verifica permissões do certificado
     chmod 600 "$CERT_TARGET"
     echo -e "${GREEN}   Permissões do certificado configuradas${NC}"
@@ -47,4 +43,4 @@ fi
 
 echo -e "${GREEN}🔐 Configuração de certificados concluída!${NC}"
 
-exit 0 
+exit 0

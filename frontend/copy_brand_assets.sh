@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Script para copiar assets de marca personalizados
-# Autor: Atendechat
-# Versão: 2.0
-
 set -e
 
 # Cores para output

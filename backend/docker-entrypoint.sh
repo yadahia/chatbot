@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Entrypoint script para o backend
-# Autor: Atendechat
-# Versão: 2.0
-
 set -e
 
 # Cores para output
@@ -21,20 +17,20 @@ wait_for_service() {
     local port=$3
     local max_attempts=60
     local attempt=1
-    
+
     echo -e "${YELLOW}⏳ Aguardando $service em $host:$port...${NC}"
-    
+
     while [ $attempt -le $max_attempts ]; do
         if nc -z "$host" "$port" 2>/dev/null; then
             echo -e "${GREEN}✅ $service está pronto!${NC}"
             return 0
         fi
-        
+
         echo -e "${YELLOW}   Tentativa $attempt/$max_attempts...${NC}"
         sleep 1
         attempt=$((attempt + 1))
     done
-    
+
     echo -e "${RED}❌ Timeout aguardando $service${NC}"
     return 1
 }
@@ -73,4 +69,4 @@ fi
 
 # Inicia a aplicação
 echo -e "${YELLOW}🚀 Iniciando aplicação...${NC}"
-exec yarn start 
+exec yarn start
